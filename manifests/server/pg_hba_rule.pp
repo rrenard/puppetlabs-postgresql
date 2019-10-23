@@ -28,7 +28,7 @@ define postgresql::server::pg_hba_rule(
 ) {
 
   #Allow users to manage pg_hba.conf even if they are not managing the whole PostgreSQL instance
-  if !defined( 'postgresql::server' ) {
+  if !defined( Class['postgresql::server'] ) {
     $manage_pg_hba_conf = true
   }
   else {
